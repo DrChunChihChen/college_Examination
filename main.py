@@ -65,34 +65,3 @@ df.to_excel (r'D:\pythonProject5_指考\df指考狀況.xlsx', index = False, hea
 
 
 
-import numpy as np
-import pandas as pd
-vn= [2,3,6,6,7,8,9,9,10,7]
-vu= [1,1,2,3,6,7,7,7,8,9]
-df = pd.DataFrame({'vn': vn, 'vu': vu})
-bins = np.arange(0,300,3)
-bins2 = np.arange(3.01,300,3)
-bins3 = np.insert(bins2,0,0)
-
-bins4 = np.concatenate((bins, bins3))
-
-list1 = bins.tolist()
-list2 = bins3.tolist()
-result = [None]*(len(list1)+len(list2))
-result[::2] = list1
-result[1::2] = list2
-result
-del result[0]
-
-bin_final = np.array(result)
-
-df['bins'] = pd.cut(df['values'], bins = bins, labels=labels)
-
-
-
-
-df['錄取學系中文名稱'] == '歷史學系', df['指考國文'] + df['指考英文']+ df['指考歷史'],
-                    df['錄取學系中文名稱'] == '日本語言文化學系', df['指考國文'] + df['指考英文']+ df['指考歷史'],
-                    df['錄取學系中文名稱'] == '哲學系', df['指考國文'] + df['指考英文']+ df['指考歷史']+ df['指考數學乙']+ df['指考公民與社會']
-指考數學乙
-指考公民與社會
